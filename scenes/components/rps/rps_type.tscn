@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://otbx7i8pd6df"]
+
+[ext_resource type="Script" uid="uid://becd5v2g4uhu5" path="res://scripts/scenes/components/rps/rps_type.gd" id="1_ysvxw"]
+[ext_resource type="Texture2D" uid="uid://bvcxrurryxq5j" path="res://assets/sprites/scenes/components/rps/rock.png" id="2_0pcdq"]
+[ext_resource type="Texture2D" uid="uid://brylyy3iian28" path="res://assets/sprites/scenes/components/rps/paper.png" id="3_tephx"]
+[ext_resource type="Texture2D" uid="uid://b5fiffp8tl448" path="res://assets/sprites/scenes/components/rps/scissor.png" id="4_g1jls"]
+[ext_resource type="AudioStream" uid="uid://cs22u3r72xsy0" path="res://assets/sounds/sfx/floraphonic-arcade-ui-1-229498.mp3" id="6_tephx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tephx"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xkpsr"]
+radius = 27.018513
+
+[node name="RPS_type" type="RigidBody2D" unique_id=731266711 node_paths=PackedStringArray("sprite_node", "convert_vfx") groups=["ball"]]
+physics_material_override = SubResource("PhysicsMaterial_tephx")
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp_mode = 1
+script = ExtResource("1_ysvxw")
+sprite_node = NodePath("Sprite2D")
+sprite_rock = ExtResource("2_0pcdq")
+sprite_paper = ExtResource("3_tephx")
+sprite_scissors = ExtResource("4_g1jls")
+convert_vfx = NodePath("ConvertVFX")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1013910326]
+shape = SubResource("CircleShape2D_xkpsr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=962208373]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_g1jls")
+
+[node name="ConvertVFX" type="AudioStreamPlayer2D" parent="." unique_id=63316683]
+stream = ExtResource("6_tephx")
