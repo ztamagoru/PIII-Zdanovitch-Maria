@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dxqgolf56afa4"]
+
+[ext_resource type="Script" uid="uid://dnxb6h08o2tg6" path="res://scripts/scenes/components/balls/ball.gd" id="1_est6p"]
+
+[node name="Ball" type="RigidBody2D" unique_id=357635527]
+script = ExtResource("1_est6p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=906111814]
