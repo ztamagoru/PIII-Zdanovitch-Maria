@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bvftt40i8phd5"]
+
+[ext_resource type="PackedScene" uid="uid://dxqgolf56afa4" path="res://scenes/components/balls/ball.tscn" id="1_lkief"]
+[ext_resource type="Script" uid="uid://dbnq6ddmwe2ht" path="res://scripts/scenes/components/balls/weapons/sword.gd" id="2_jwkab"]
+[ext_resource type="Texture2D" uid="uid://ceksgyc0ueitk" path="res://assets/sprites/scenes/components/ball/weapons/fc1609.png" id="3_hiixk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lkief"]
+radius = 7.0
+height = 46.0
+
+[node name="BallSwordsman" unique_id=357635527 groups=["ball"] instance=ExtResource("1_lkief")]
+
+[node name="AttackCD" parent="." index="4" unique_id=576219485]
+autostart = true
+
+[node name="Sword" type="Area2D" parent="." index="7" unique_id=368684259 node_paths=PackedStringArray("change_direction_cd", "ability_cd")]
+script = ExtResource("2_jwkab")
+change_direction_cd = NodePath("DirectionCD")
+ability_cd = NodePath("AbilityCD")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword" index="0" unique_id=1513662749]
+position = Vector2(70, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_lkief")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sword" index="1" unique_id=2092646821]
+position = Vector2(61.999996, 0)
+rotation = 0.7853982
+scale = Vector2(0.74999994, 0.74999994)
+texture = ExtResource("3_hiixk")
+
+[node name="DirectionCD" type="Timer" parent="Sword" index="2" unique_id=351624577]
+one_shot = true
+autostart = true
+
+[node name="AbilityCD" type="Timer" parent="Sword" index="3" unique_id=376921828]
+one_shot = true
+autostart = true

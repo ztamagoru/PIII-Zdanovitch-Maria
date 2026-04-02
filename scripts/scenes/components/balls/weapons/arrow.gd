@@ -10,7 +10,6 @@ func _physics_process(delta: float):
 	
 	for body in get_overlapping_bodies():
 		if body.is_in_group("ball") and not body == parent:
-			print("colisionando con bola")
 			body.take_damage(damage)
 			queue_free()
 		elif body.is_in_group("wall"):

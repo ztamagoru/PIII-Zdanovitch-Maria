@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cuh2gnengrrjj"]
 
 [ext_resource type="PackedScene" uid="uid://casildu233ip6" path="res://scenes/components/balls/ball_archer.tscn" id="1_5u0fg"]
-[ext_resource type="PackedScene" path="res://scenes/components/ui/speed_up_button.tscn" id="2_5s8wm"]
+[ext_resource type="PackedScene" uid="uid://cavl44j66hsjl" path="res://scenes/components/ui/speed_up_button.tscn" id="2_5s8wm"]
+[ext_resource type="PackedScene" uid="uid://bvftt40i8phd5" path="res://scenes/components/balls/ball_swordsman.tscn" id="3_bbh4n"]
 
 [sub_resource type="Gradient" id="Gradient_dn5pq"]
 offsets = PackedFloat32Array(0)
@@ -58,12 +59,11 @@ shape = SubResource("RectangleShape2D_e03ib")
 position = Vector2(504, 264)
 lock_rotation = false
 
-[node name="BallArcher2" parent="." unique_id=619375230 instance=ExtResource("1_5u0fg")]
-position = Vector2(656, 392)
-lock_rotation = false
-
 [node name="SpeedUpButton" parent="." unique_id=1674464962 instance=ExtResource("2_5s8wm")]
 offset_left = 1048.0
 offset_top = 576.0
 offset_right = 1123.0
 offset_bottom = 626.0
+
+[node name="BallSwordsman" parent="." unique_id=1777467399 instance=ExtResource("3_bbh4n")]
+position = Vector2(648, 416)
