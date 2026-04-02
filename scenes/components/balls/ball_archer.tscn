@@ -1,8 +1,25 @@
-[gd_scene format=3 uid="uid://dxqgolf56afa4"]
+[gd_scene format=3 uid="uid://casildu233ip6"]
 
-[ext_resource type="Script" uid="uid://dnxb6h08o2tg6" path="res://scripts/scenes/components/balls/ball.gd" id="1_est6p"]
+[ext_resource type="PackedScene" uid="uid://dxqgolf56afa4" path="res://scenes/components/balls/ball.tscn" id="1_7u3aa"]
+[ext_resource type="Script" uid="uid://un5xhqhn8fn7" path="res://scripts/scenes/components/balls/weapons/bow.gd" id="3_6gnua"]
+[ext_resource type="Texture2D" uid="uid://kh6u6u2dcsa4" path="res://assets/sprites/scenes/components/ball/weapons/fc1789.png" id="4_t55ye"]
 
-[node name="Ball" type="RigidBody2D" unique_id=357635527]
-script = ExtResource("1_est6p")
+[node name="BallArcher" unique_id=357635527 groups=["ball"] instance=ExtResource("1_7u3aa")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=906111814]
+[node name="AttackCD" parent="." index="4" unique_id=576219485]
+autostart = true
+
+[node name="Bow" type="Node2D" parent="." index="7" unique_id=179411498 node_paths=PackedStringArray("change_direction_cd", "bow_sprite")]
+script = ExtResource("3_6gnua")
+change_direction_cd = NodePath("DirectionCD")
+bow_sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bow" index="0" unique_id=1592756711]
+position = Vector2(45, 0)
+rotation = 0.7853982
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_t55ye")
+
+[node name="DirectionCD" type="Timer" parent="Bow" index="1" unique_id=419010083]
+one_shot = true
+autostart = true

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dxqgolf56afa4"]
+
+[ext_resource type="Script" uid="uid://dnxb6h08o2tg6" path="res://scripts/scenes/components/balls/ball.gd" id="1_ys2hg"]
+[ext_resource type="Texture2D" uid="uid://d0sj187lwcf38" path="res://assets/sprites/scenes/components/ball/500.png" id="2_xsl8c"]
+[ext_resource type="AudioStream" uid="uid://tiv1p42donc7" path="res://assets/sounds/sfx/clack.ogg" id="3_lpijl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6gnua"]
+bounce = 0.75
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wdx3k"]
+radius = 50.01
+
+[node name="Ball" type="RigidBody2D" unique_id=357635527 node_paths=PackedStringArray("node_sprite", "node_label", "node_attack_cd", "node_movement_cd", "node_bounce_sfx")]
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_6gnua")
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_ys2hg")
+node_sprite = NodePath("Sprite2D")
+node_label = NodePath("Label")
+node_attack_cd = NodePath("AttackCD")
+node_movement_cd = NodePath("MovementCD")
+node_bounce_sfx = NodePath("BounceSFX")
+
+[node name="Borde" type="Sprite2D" parent="." unique_id=1094858129]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.31599998, 0.31599998)
+texture = ExtResource("2_xsl8c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=689490364]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_xsl8c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=906111814]
+shape = SubResource("CircleShape2D_wdx3k")
+
+[node name="Label" type="Label" parent="." unique_id=939630926]
+offset_left = -44.0
+offset_top = -25.0
+offset_right = 45.0
+offset_bottom = 25.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "afafa"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttackCD" type="Timer" parent="." unique_id=576219485]
+one_shot = true
+
+[node name="MovementCD" type="Timer" parent="." unique_id=1765721589]
+one_shot = true
+autostart = true
+
+[node name="BounceSFX" type="AudioStreamPlayer2D" parent="." unique_id=1999036934]
+stream = ExtResource("3_lpijl")

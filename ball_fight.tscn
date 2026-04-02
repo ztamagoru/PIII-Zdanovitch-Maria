@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cuh2gnengrrjj"]
+
+[ext_resource type="PackedScene" uid="uid://casildu233ip6" path="res://scenes/components/balls/ball_archer.tscn" id="1_5u0fg"]
+[ext_resource type="PackedScene" path="res://scenes/components/ui/speed_up_button.tscn" id="2_5s8wm"]
+
+[sub_resource type="Gradient" id="Gradient_dn5pq"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5u0fg"]
+gradient = SubResource("Gradient_dn5pq")
+
+[sub_resource type="Gradient" id="Gradient_5s8wm"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bbh4n"]
+gradient = SubResource("Gradient_5s8wm")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uj4u"]
+size = Vector2(1152, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e03ib"]
+size = Vector2(384, 392)
+
+[node name="FightPit" type="Node2D" unique_id=1806572566]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=761625143 groups=["wall"]]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1827703432]
+position = Vector2(576, 323.74997)
+scale = Vector2(4.5, 648.5)
+texture = SubResource("GradientTexture1D_5u0fg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D" unique_id=1310742994]
+position = Vector2(576, 324.00003)
+scale = Vector2(1.4999999, 392.00003)
+texture = SubResource("GradientTexture1D_bbh4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1547866149]
+position = Vector2(576, 64)
+shape = SubResource("RectangleShape2D_2uj4u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=266000801]
+position = Vector2(576, 584)
+shape = SubResource("RectangleShape2D_2uj4u")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1360615438]
+position = Vector2(192, 324)
+shape = SubResource("RectangleShape2D_e03ib")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=833543332]
+position = Vector2(960, 324)
+shape = SubResource("RectangleShape2D_e03ib")
+
+[node name="BallArcher" parent="." unique_id=357635527 instance=ExtResource("1_5u0fg")]
+position = Vector2(504, 264)
+lock_rotation = false
+
+[node name="BallArcher2" parent="." unique_id=619375230 instance=ExtResource("1_5u0fg")]
+position = Vector2(656, 392)
+lock_rotation = false
+
+[node name="SpeedUpButton" parent="." unique_id=1674464962 instance=ExtResource("2_5s8wm")]
+offset_left = 1048.0
+offset_top = 576.0
+offset_right = 1123.0
+offset_bottom = 626.0

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://n5bn14ll5l2p"]
+
+[ext_resource type="Script" uid="uid://b12iu2xn5lc56" path="res://scripts/scenes/components/balls/weapons/arrow.gd" id="1_fwuey"]
+[ext_resource type="Texture2D" uid="uid://c35nce42lch8o" path="res://assets/sprites/scenes/components/ball/weapons/fc2154.png" id="1_x2vn5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fwuey"]
+radius = 6.0
+height = 24.0
+
+[node name="Arrow" type="Area2D" unique_id=787984370]
+script = ExtResource("1_fwuey")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1514366979]
+position = Vector2(23.000002, 0)
+rotation = 0.7853982
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_x2vn5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=660085211]
+position = Vector2(39, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fwuey")
