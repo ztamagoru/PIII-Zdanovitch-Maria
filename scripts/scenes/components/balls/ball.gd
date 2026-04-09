@@ -18,6 +18,8 @@ class_name Ball
 const max_hp : float = 100
 var hp : float
 
+var die_particles_scene = preload("res://scenes/components/vfx/ball_die_particle.tscn")
+
 const min_scale : float = 0.6
 var base_sprite_scale : float 
 var base_border_scale : float 
@@ -48,7 +50,17 @@ func ball_physics_process(_delta : float):
 func take_damage(damage : float):
 	hp -= damage
 	
-	if hp <= 0: queue_free()
+	if hp <= 0:
+		var die_particle = die_particles_scene.instantiate()
+		
+		get_tree().current_scene.add_child(die_particle)
+		
+		die_particle.modulate = custom_color
+		die_particle.global_position = global_position
+		die_particle.emitting = true
+		
+		print(die_particle)
+		queue_free()
 	else: 
 		var new_scale : float = 0.5 + (0.5 * (hp / max_hp)) 
 		change_scale(new_scale)

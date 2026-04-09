@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dgq4ria8mxppw"]
+
+[ext_resource type="Texture2D" uid="uid://wyukgbrmj2jm" path="res://assets/sprites/textures/die_particle_texture.tres" id="1_roeae"]
+[ext_resource type="Curve" uid="uid://biufsq58qp27x" path="res://scenes/components/vfx/ball_die_particle_scale_curve.tres" id="2_o6jfl"]
+[ext_resource type="Script" uid="uid://nu5gkgh1hh61" path="res://scripts/scenes/components/vfx/ball_die_particle.gd" id="3_chfwx"]
+
+[node name="BallDieParticle" type="CPUParticles2D" unique_id=1627489761]
+z_index = 1
+emitting = false
+amount = 500
+texture = ExtResource("1_roeae")
+lifetime = 0.4
+one_shot = true
+speed_scale = 0.75
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_max = 10.0
+scale_amount_curve = ExtResource("2_o6jfl")
+script = ExtResource("3_chfwx")

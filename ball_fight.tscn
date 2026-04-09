@@ -56,17 +56,22 @@ position = Vector2(960, 324)
 shape = SubResource("RectangleShape2D_e03ib")
 
 [node name="BallArcher" parent="." unique_id=357635527 instance=ExtResource("1_5u0fg")]
-position = Vector2(504, 264)
-custom_color = Color(0.5, 0.5, 0.5, 1)
-custom_attackcd = 0.25
+position = Vector2(500, 264)
+custom_color = Color(0.38343, 0.44792247, 0.9068693, 1)
 
 [node name="SpeedUpButton" parent="." unique_id=1674464962 instance=ExtResource("2_5s8wm")]
 offset_left = 1048.0
 offset_top = 576.0
 offset_right = 1123.0
 offset_bottom = 626.0
+sped_up = 4.0
+
+[node name="SpeedUpButton2" parent="." unique_id=1440310010 instance=ExtResource("2_5s8wm")]
+offset_left = 946.0
+offset_top = 576.0
+offset_right = 1021.0
+offset_bottom = 626.0
 
 [node name="BallSwordsman" parent="." unique_id=1777467399 instance=ExtResource("3_bbh4n")]
 position = Vector2(648, 416)
-custom_color = Color(0.5, 0.5, 0.5, 1)
-custom_attackcd = 0.25
+custom_color = Color(0.8260817, 0.31456098, 0.10077385, 1)
