@@ -72,8 +72,7 @@ func change_scale(new_scale : float):
 	node_sprite.scale = Vector2(new_sprite_scale, new_sprite_scale)
 	node_border.scale = Vector2(new_border_scale, new_border_scale)
 	node_collission.scale = Vector2(new_scale, new_scale)
-	#node_label.scale = Vector2(new_scale, new_scale)
-	node_weapon.scale = Vector2(new_scale, new_scale)
+	if node_weapon: node_weapon.scale = Vector2(new_scale, new_scale)
 	
 
 func movement_cd():

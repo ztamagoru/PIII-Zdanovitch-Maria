@@ -22,11 +22,27 @@ func change_direction():
 	change_direction_cd.start(randf_range(1, 6))
 
 func attack():
-	var arrow = arrow_scene.instantiate()
-	arrow.parent = get_parent()
+	if get_parent().hp > get_parent().max_hp / 3:
+		var arrow = arrow_scene.instantiate()
+		arrow.parent = get_parent()
+		
+		get_tree().root.add_child(arrow)
+		
+		arrow.global_position = self.global_position
+		arrow.rotation = self.rotation
+	else:
+		print(get_parent().hp)
+		var angle : float = -2.5
+		
+		for i in range(3):
+			var arrow = arrow_scene.instantiate()
+			arrow.parent = get_parent()
+			
+			get_tree().root.add_child(arrow)
+			
+			arrow.global_position = self.global_position
+			arrow.rotation_degrees = self.rotation_degrees + angle
+			
+			angle += 20
 	
-	get_tree().root.add_child(arrow)
-	
-	arrow.global_position = self.global_position
-	arrow.rotation = self.rotation
 	attack_cd.start(randf_range(0.5, 2))

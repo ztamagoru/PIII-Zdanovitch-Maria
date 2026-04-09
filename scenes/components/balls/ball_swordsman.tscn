@@ -8,8 +8,7 @@
 radius = 7.0
 height = 46.0
 
-[node name="BallSwordsman" unique_id=357635527 node_paths=PackedStringArray("node_weapon") groups=["ball"] instance=ExtResource("1_lkief")]
-node_weapon = NodePath("Sword")
+[node name="BallSwordsman" unique_id=357635527 groups=["ball"] instance=ExtResource("1_lkief")]
 
 [node name="AttackCD" parent="." index="4" unique_id=576219485]
 autostart = true
