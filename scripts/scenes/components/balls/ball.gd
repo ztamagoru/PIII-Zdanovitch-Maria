@@ -7,23 +7,34 @@ class_name Ball
 
 @export_group("Nodes", "node_")
 @export var node_sprite : Sprite2D
+@export var node_border : Sprite2D
+@export var node_collission : CollisionShape2D
 @export var node_label : Label
 @export var node_attack_cd : Timer
 @export var node_movement_cd : Timer 
 @export var node_bounce_sfx : AudioStreamPlayer2D
+@export var node_weapon : Node2D
 
-var hp : float = 100
+const max_hp : float = 100
+var hp : float
+
+const min_scale : float = 0.6
+var base_sprite_scale : float 
+var base_border_scale : float 
 
 func _ready():
+	hp = max_hp
 	node_sprite.modulate = custom_color
 	lock_rotation = true
+	
+	
+	base_sprite_scale = node_sprite.scale.x
+	base_border_scale = node_border.scale.x
 	
 	node_movement_cd.timeout.connect(movement_cd)
 
 func _process(_delta : float):
 	node_label.text = str(int(hp))
-	
-	if hp <= 0: queue_free()
 
 func _physics_process(delta : float):
 	ball_physics_process(delta)
@@ -36,6 +47,22 @@ func ball_physics_process(_delta : float):
 
 func take_damage(damage : float):
 	hp -= damage
+	
+	if hp <= 0: queue_free()
+	else: 
+		var new_scale : float = 0.5 + (0.5 * (hp / max_hp)) 
+		change_scale(new_scale)
+
+func change_scale(new_scale : float):
+	var new_sprite_scale : float = base_sprite_scale * new_scale
+	var new_border_scale : float = base_border_scale * new_scale
+	
+	node_sprite.scale = Vector2(new_sprite_scale, new_sprite_scale)
+	node_border.scale = Vector2(new_border_scale, new_border_scale)
+	node_collission.scale = Vector2(new_scale, new_scale)
+	#node_label.scale = Vector2(new_scale, new_scale)
+	node_weapon.scale = Vector2(new_scale, new_scale)
+	
 
 func movement_cd():
 	apply_central_impulse(Vector2(randi_range(-50, 300),randi_range(-50, 300)))

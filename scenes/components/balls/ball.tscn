@@ -10,13 +10,15 @@ bounce = 0.75
 [sub_resource type="CircleShape2D" id="CircleShape2D_wdx3k"]
 radius = 50.01
 
-[node name="Ball" type="RigidBody2D" unique_id=357635527 node_paths=PackedStringArray("node_sprite", "node_label", "node_attack_cd", "node_movement_cd", "node_bounce_sfx")]
+[node name="Ball" type="RigidBody2D" unique_id=357635527 node_paths=PackedStringArray("node_sprite", "node_border", "node_collission", "node_label", "node_attack_cd", "node_movement_cd", "node_bounce_sfx")]
 mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_6gnua")
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_ys2hg")
 node_sprite = NodePath("Sprite2D")
+node_border = NodePath("Borde")
+node_collission = NodePath("CollisionShape2D")
 node_label = NodePath("Label")
 node_attack_cd = NodePath("AttackCD")
 node_movement_cd = NodePath("MovementCD")

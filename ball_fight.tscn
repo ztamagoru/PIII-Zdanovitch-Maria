@@ -57,7 +57,8 @@ shape = SubResource("RectangleShape2D_e03ib")
 
 [node name="BallArcher" parent="." unique_id=357635527 instance=ExtResource("1_5u0fg")]
 position = Vector2(504, 264)
-lock_rotation = false
+custom_color = Color(0.5, 0.5, 0.5, 1)
+custom_attackcd = 0.25
 
 [node name="SpeedUpButton" parent="." unique_id=1674464962 instance=ExtResource("2_5s8wm")]
 offset_left = 1048.0
@@ -67,3 +68,5 @@ offset_bottom = 626.0
 
 [node name="BallSwordsman" parent="." unique_id=1777467399 instance=ExtResource("3_bbh4n")]
 position = Vector2(648, 416)
+custom_color = Color(0.5, 0.5, 0.5, 1)
+custom_attackcd = 0.25

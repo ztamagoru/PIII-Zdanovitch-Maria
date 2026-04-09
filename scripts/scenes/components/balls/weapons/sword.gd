@@ -42,7 +42,6 @@ func _physics_process(_delta: float):
 			if attack_cd.time_left > 0:
 				return
 			
-			print("colisionando con bola enemiga")
 			attack_cd.start(1)
 			body.take_damage(damage)
 		

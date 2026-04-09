@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cavl44j66hsjl"]
 
-[ext_resource type="Script" uid="uid://dcgag750cypvj" path="res://scripts/scenes/components/ui/speed_up_button.gd" id="1_25wr7"]
+[ext_resource type="Script" uid="uid://b37wd2w05jgjw" path="res://scripts/scenes/components/ui/speed_up_button.gd" id="1_25wr7"]
 
 [node name="SpeedUpButton" type="Button" unique_id=1674464962]
 custom_minimum_size = Vector2(75, 50)

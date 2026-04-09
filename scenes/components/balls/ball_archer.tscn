@@ -4,7 +4,8 @@
 [ext_resource type="Script" uid="uid://un5xhqhn8fn7" path="res://scripts/scenes/components/balls/weapons/bow.gd" id="3_6gnua"]
 [ext_resource type="Texture2D" uid="uid://kh6u6u2dcsa4" path="res://assets/sprites/scenes/components/ball/weapons/fc1789.png" id="4_t55ye"]
 
-[node name="BallArcher" unique_id=357635527 groups=["ball"] instance=ExtResource("1_7u3aa")]
+[node name="BallArcher" unique_id=357635527 node_paths=PackedStringArray("node_weapon") groups=["ball"] instance=ExtResource("1_7u3aa")]
+node_weapon = NodePath("Bow")
 
 [node name="AttackCD" parent="." index="4" unique_id=576219485]
 autostart = true
